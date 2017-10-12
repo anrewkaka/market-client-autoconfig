@@ -1,0 +1,46 @@
+buildscript {
+  ext {
+    springBootVersion = '1.5.7.RELEASE'
+  }
+  repositories {
+    mavenCentral()
+    mavenLocal()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'org.springframework.boot'
+
+group = "${group}"
+version = "${version_application}"
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId "${group}"
+            artifactId "${project_name}"
+            version "${version_application}"
+
+            from components.java
+        }
+    }
+}
+
+dependencies {
+  compile(
+    'org.springframework.boot:spring-boot-starter-web',
+    'xyz.lannt:market-client:1.0.1-SNAPSHOT',
+  )
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+}
