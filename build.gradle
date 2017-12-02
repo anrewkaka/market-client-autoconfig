@@ -40,7 +40,7 @@ publishing {
 dependencies {
   compile(
     'org.springframework.boot:spring-boot-starter-web',
-    'xyz.lannt:market-client:1.0.1-SNAPSHOT',
+    'xyz.lannt:market-client:1.0.2-SNAPSHOT',
   )
   testCompile('org.springframework.boot:spring-boot-starter-test')
 }
